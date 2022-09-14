@@ -29,7 +29,7 @@ const Admin = () => {
             const fields = {
                 title,
                 text,
-                imageUrl: `http://localhost:4444/admin/slider${imageUrl}`,
+                imageUrl: `${process.env.REACT_APP_API_URL}${imageUrl}`,
             }
             const { data } = await axios.post('/admin/news', fields)
             const id = data._id
@@ -51,7 +51,7 @@ const Admin = () => {
                 <h1>Картинка новости:</h1>
                 <p><input type='file' ref={inputFileRef} onChange={handleChangeFile}/></p>
                 {imageUrl
-                ?<img src={`http://localhost:4444/admin/slider${imageUrl}`} className="adminImg"/>
+                ?<img src={`${process.env.REACT_APP_API_URL}${imageUrl}`} className="adminImg"/>
                 :console.log("ksdlkf")
                 }
                 <p>
